@@ -1,3 +1,7 @@
+## I set the input x as a matrix
+## and then set the solved value "inv" as a null
+## then I changed every reference of "mean" to "solve"
+
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
   set <- function(y) {
@@ -11,6 +15,9 @@ makeCacheMatrix <- function(x = matrix()) {
        setInverse = setInverse, 
        getInverse = getInverse)
 }
+## Same here, changed "mean" to "solve" and "m" to "mat"
+## This function computes the inverse of the special "matrix" created by makeCacheMatrix above.
+##If the inverse has already been calculated (and the  matrix has not changed), then it should retrieve the inverse from the cache.
 cacheSolve <- function(x, ...) {
     inv <- x$getInverse()
   if(!is.null(inv)){
@@ -22,3 +29,4 @@ cacheSolve <- function(x, ...) {
   x$setInverse(inv)
   inv
 }
+## here in this execution, the functions will create object which stores a matrix and caches its inverse.
